@@ -1,1 +1,15 @@
-<p>article works!</p>
+<div [ngClass]="{ 'highlighted': isProductInStock }" class="article-item">
+    <img [src]="imageUrl" alt="{{ name }}" class="article-image" />
+  
+    <div class="article-details">
+      <h2>{{ name }}</h2>
+      <p>Precio: {{ price }} €</p>
+      <p *ngIf="isOnSale">Disponible</p>
+      <p>Cantidad: {{ quantityInCart }}</p>
+
+      <div>
+        <button (click)="incrementQuantity()">+</button>
+        <button (click)="decrementQuantity()" [disabled]="quantityInCart === 0">-</button>
+      </div>
+    </div>
+  </div>
