@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Article } from '../model/Article';
 import { ArticleQuantityChange } from '../model/ArticleQuantityChange';
@@ -8,7 +8,8 @@ import { ArticleQuantityChange } from '../model/ArticleQuantityChange';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './article-item.component.html',
-  styleUrl: './article-item.component.sass'
+  styleUrl: './article-item.component.sass',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleItemComponent {
   @Input() public article: Article ;
