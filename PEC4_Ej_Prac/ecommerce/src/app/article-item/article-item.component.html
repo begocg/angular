@@ -1,16 +1,16 @@
 <div [ngClass]="{ 'highlighted': isProductInStock }" class="article-item">
-  <img [src]="imageUrl" alt="{{ name }}" class="article-image" />
+  <img [src]="article.imageUrl" alt="{{ article.name }}" class="article-image" />
 
   <div class="article-details">
-    <h2>{{ name }}</h2>
-    <p [ngClass]="{ 'not-on-sale': !isOnSale }">Precio: {{ price }} €</p>
-    <ng-container *ngIf="isOnSale">
+    <h2>{{ article.name }}</h2>
+    <p [ngClass]="{ 'not-on-sale': !article.isOnSale }">Precio: {{ article.price }} €</p>
+    <ng-container *ngIf="article.isOnSale">
       <p>Disponible</p>
-      <p>Cantidad: {{ quantityInCart }}</p>
+      <p>Cantidad: {{ article.quantityInCart }}</p>
 
       <div>
         <button (click)="incrementQuantity()">+</button>
-        <button (click)="decrementQuantity()" [disabled]="quantityInCart === 0">-</button>
+        <button (click)="decrementQuantity()" [disabled]="article.quantityInCart === 0">-</button>
       </div>
     </ng-container>
   </div>
